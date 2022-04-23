@@ -26,6 +26,6 @@ public class TC_01_GetAllEmployees extends Testbase {
 	void checkResponseBody() {
 		print("checking response body");
 		String responsebody=response.getBody().asString();
-		System.out.println("Body is:"+responsebody);
+		System.out.println("Body is :"+responsebody);
 	}
 }
