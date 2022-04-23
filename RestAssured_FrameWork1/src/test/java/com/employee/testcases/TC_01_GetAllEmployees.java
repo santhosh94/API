@@ -13,11 +13,11 @@ public class TC_01_GetAllEmployees extends Testbase {
 	@BeforeClass
 	void getAllEmployees() throws InterruptedException {
 		
-		RestAssured.baseURI="http://dummy.restapiexample.com/api/v1";
+		RestAssured.baseURI="https://reqres.in/api/users";
 	
 		httprequest=RestAssured.given();
 		// request response
-		response=httprequest.request(Method.GET,"/employees");
+		response=httprequest.request(Method.GET,"?page=2");
 		
 		Thread.sleep(3000);
 	}
@@ -25,5 +25,7 @@ public class TC_01_GetAllEmployees extends Testbase {
 	@Test
 	void checkResponseBody() {
 		print("checking response body");
+		String responsebody=response.getBody().asString();
+		System.out.println("Body is:"+responsebody);
 	}
 }
