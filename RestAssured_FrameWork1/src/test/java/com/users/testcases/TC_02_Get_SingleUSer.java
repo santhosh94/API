@@ -1,25 +1,25 @@
-package com.employee.testcases;
+package com.users.testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.employee.base.Testbase;
+import com.users.base.Testbase;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 
-public class TC_01_Get_All_Users extends Testbase {
+public class TC_02_Get_SingleUSer extends Testbase {
 
 	@BeforeClass
 	void getAllEmployees() throws InterruptedException {
-		
-		RestAssured.baseURI="https://reqres.in/";
+		print("TC 02 get single user started");
+		RestAssured.baseURI="https://reqres.in/api";
 	
 		httprequest=RestAssured.given();
 		// request response
-		response=httprequest.request(Method.GET,"api/users?page=2");
+		response=httprequest.request(Method.GET,"/users/"+userid); //userid received from Testbase class
 		
 		Thread.sleep(3000);
 	}
@@ -29,22 +29,23 @@ public class TC_01_Get_All_Users extends Testbase {
 		print("checking response body");
 		String responsebody=response.getBody().asString();
 		System.out.println("Body is:"+responsebody);
-		Assert.assertTrue(responsebody!=null);
+		Assert.assertEquals(responsebody.contains(userid),true);
 	}
 	@Test
 	void checkStatusCode() {
 		print("checkStatusCode");
 		int StatusCode=response.getStatusCode();
 		System.out.println("StatusCode is:"+StatusCode);
+		Assert.assertEquals(StatusCode, 200);
 	}
 	@Test
 	void checkResponsetime() {
 		print("checkResponsetime");
 		long Responsetime=response.getTime();
 		System.out.println("Responsetime is:"+Responsetime);
-		if(Responsetime>2000)
-			print("response time is longer than 20000");
-		Assert.assertTrue(Responsetime<2000);
+		if(Responsetime>4000)
+			print("response time is longer than 4000");
+		Assert.assertTrue(Responsetime<4000);
 		
 	}
 	@Test
@@ -57,6 +58,6 @@ public class TC_01_Get_All_Users extends Testbase {
 	
 	@AfterClass
 	void teardown() {
-		print("Test case 01 completed.");
+		print("Test case 02 completed.");
 	}
 }

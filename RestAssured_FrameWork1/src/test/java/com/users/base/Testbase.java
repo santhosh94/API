@@ -1,4 +1,4 @@
-package com.employee.base;
+package com.users.base;
 
 import org.testng.annotations.BeforeTest;
 
@@ -10,6 +10,7 @@ public class Testbase {
 	
 	public static RequestSpecification httprequest;
 	public static Response response;
+	public static String userid="2";//hard coded for test purpose only
 	
 	@BeforeTest
 	public void setup() {

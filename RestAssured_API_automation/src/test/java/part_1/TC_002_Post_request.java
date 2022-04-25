@@ -16,7 +16,7 @@ public class TC_002_Post_request {
 		// TODO Auto-generated method stub
 
 		//specify base URI
-		RestAssured.baseURI="https://reqres.in";
+		RestAssured.baseURI="https://reqres.in/api";
 		
 		//Request object
 		RequestSpecification httprequest=RestAssured.given();
@@ -33,7 +33,7 @@ public class TC_002_Post_request {
 		
 		//Response object
 		//save the response to 'response' object
-		Response response=httprequest.request(Method.POST,"/api/users"); // '/api/users 'parameter here
+		Response response=httprequest.request(Method.POST,"/users"); // '/users 'parameter here
 		
 		//print response in console(for reference only)
 		String responseBody=response.getBody().asString();

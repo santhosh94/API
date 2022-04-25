@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.employee.testcases.TC_01_GetAllEmployees">
+      <class name="com.users.testcases.TC_03_Post_SingleUser">
         <methods>
-          <include name="checkResponsetime"/>
-          <include name="getAllEmployees"/>
-          <include name="teardown"/>
           <include name="setup"/>
+          <include name="checkUserNameField"/>
+          <include name="teardown"/>
+          <include name="createUser"/>
         </methods>
-      </class> <!-- com.employee.testcases.TC_01_GetAllEmployees -->
+      </class> <!-- com.users.testcases.TC_03_Post_SingleUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
