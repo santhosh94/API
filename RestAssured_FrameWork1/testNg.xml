@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="restassuredframework1_Suite">
+
+	<test thread-count="5" name="restassured_Test ">
+		<classes>
+
+			<class name="com.users.testcases.TC_01_Get_All_Users" />
+			<class name="com.users.testcases.TC_02_Get_SingleUSer" />
+			<class name="com.users.testcases.TC_03_Post_SingleUser" />
+
+		</classes>
+		>
+	</test>
+</suite>
